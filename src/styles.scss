@@ -1,0 +1,602 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~font-awesome/css/font-awesome.css";
+@import "../node_modules/angular-notifier/styles.css";
+@import "../node_modules/angular-notifier/styles/core.css";
+@import "../node_modules/angular-notifier/styles/themes/theme-material.css";
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+@import "../node_modules/fullcalendar/dist/fullcalendar.min.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~saturn-datepicker/bundle.css';
+
+$sides: (top, bottom, left, right);
+@for $i from 0 to 100 {
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$i} {
+      margin-#{$side}: #{$i}px !important;
+    }
+    .p#{str-slice($side, 0, 1)}-#{$i} {
+      padding-#{$side}: #{$i}px !important;
+    }
+    .m-#{$i} {
+      margin: #{$i}px !important;
+    }
+    .p-#{$i} {
+      padding: #{$i}px !important;
+    }
+  }
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}--#{$i} {
+      margin-#{$side}: -#{$i}px !important;
+    }
+    .m--#{$i} {
+      margin: -#{$i}px !important;
+    }
+  }
+  .pv-#{$i} {
+    padding-top: #{$i}px !important;
+    padding-bottom: #{$i}px !important;
+  }
+  .ph-#{$i} {
+    padding-left: #{$i}px !important;
+    padding-right: #{$i}px !important;
+  }
+  .mv-#{$i} {
+    margin-top: #{$i}px !important;
+    margin-bottom: #{$i}px !important;
+  }
+  .mh-#{$i} {
+    margin-left: #{$i}px !important;
+    margin-right: #{$i}px !important;
+  }
+  .mv--#{$i} {
+    margin-top: -#{$i}px !important;
+    margin-bottom: -#{$i}px !important;
+  }
+  .mh--#{$i} {
+    margin-left: -#{$i}px !important;
+    margin-right: -#{$i}px !important;
+  }
+  .w-#{$i} {
+    width: #{$i}% !important;
+  }
+}
+
+.has-error {
+  border: solid 1px red;
+}
+
+.form-error-content{
+  color: red !important;
+  font-size: 11px;
+}
+
+.cursor-pointer {
+  cursor: pointer !important;
+}
+
+.cursor-pointers {
+  color: white !important;
+  cursor: pointer !important;
+}
+
+.mat-cell {
+  font-size: 13px !important;
+}
+      
+.text-align-right {
+  text-align: right;
+}
+.text-align-center {
+  text-align: center;
+}
+.text-align-left {
+  text-align: left;
+}
+
+.vertical-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.mat-checkbox .mat-checkbox-frame {
+  border-color: #3BB2FA;
+}
+.mat-checkbox-checked .mat-checkbox-background {
+  background-color: gray;
+}
+.mat-checkbox-checked:not(.mat-checkbox-disabled) .mat-checkbox-background:not(.mat-checkbox-disabled) {
+  background-color: #3BB2FA;
+}
+
+//for toggle thumb and bar
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #1DBE73; 
+}
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: #1DBE73;
+}
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: #1DBE73;
+}
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: #1DBE73;
+}
+.mat-slide-toggle-bar {
+  background-color: #828484;
+}
+ .mat-slide-toggle-bar {
+  height: 10px !important;
+  width:30px !important;
+}
+ .mat-slide-toggle-thumb {
+  height: 15px !important;
+  width: 15px !important;
+}
+.mat-datepicker-toggle{
+  color:#858796;
+}
+  
+//radio button
+.mat-radio-button.mat-primary .mat-radio-inner-circle, .mat-radio-button.mat-primary .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-primary.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-primary:active .mat-radio-persistent-ripple {
+  background-color: #f5394a;
+}
+.mat-radio-button.mat-primary.mat-radio-checked .mat-radio-outer-circle {
+  border-color:#f5394a;
+  background-color: white;
+}
+.mat-radio-button .mat-radio-outer-circle {
+  background-color: white;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar {
+  background: #f5394a;
+  height: 4px !important;
+}
+
+.mat-tab-label:hover:not(.mat-tab-disabled) {
+  background: #e9e7e7 !important;
+}
+
+.mat-tab-label-content{
+  font-size: 14px !important;
+  font-family: "Montserrat-Regular";
+}
+
+.mat-tab-label-active:focus {
+  background: none !important;
+}
+
+.mat-tab-label-active{
+  color: #1DBE73;
+}
+
+.mat-focused .mat-form-field-underline .mat-form-field-ripple { 
+  background: #1DBE73; 
+}
+
+.mat-focused .mat-form-field-label { 
+  color: #1DBE73 !important;
+}
+
+.mat-select-arrow {
+  color: #858796 !important;
+}
+
+//Mat button
+.mat-button {
+  font-family: "Montserrat-Regular";
+  cursor: pointer;
+  border-radius: 5px !important;
+  line-height: 34px !important;
+  padding: 0px 14px !important;
+
+}
+
+.mat-button.focus, .mat-button:hover {
+  color: #e8e5e5;
+  text-decoration: none;
+}
+
+.mat-button-focus-overlay {
+  display: none;
+}
+
+.green-button {
+  background-color: #1DBE73; 
+  color: white;
+}
+
+.red-button {
+  background-color: #f5394a; 
+  color: white; 
+}
+
+.blue-button {
+  background-color: #3bb2fa; 
+  color: white; 
+}
+
+.orange-button {
+  background-color: #E7643E; 
+  color: white; 
+}
+
+.grey-button {
+  background-color: #F1F2F2; 
+  color: black; 
+}
+
+.gray-button {
+  background-color: #C1C1C1; 
+  color: white; 
+}
+
+.grey-button:hover {
+  color: #858796; 
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #575555 !important;
+}
+
+.mat-form-field-appearance-outline.mat-form-field-invalid .mat-form-field-outline-thick {
+  color: red !important;
+}
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #d43f3a;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked, .mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #d43f3a;
+}
+
+.mat-checkbox-indeterminate .mat-checkbox-background  {
+  background: #d43f3a !important;
+}
+
+.mat-table {
+  overflow: auto;
+  display: grid;
+}
+
+.ngx-datatable .datatable-footer {
+  position: absolute;
+  top: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+  
+.ngx-datatable .datatable-header {
+  position: absolute;
+  top: 50px;
+}
+  
+.ngx-datatable .datatable-body {
+  margin-top: 100px;
+}
+
+.ngx-datatable .datatable-header .datatable-header-cell-label {
+  font-weight: bold;
+  color: #676a6d;
+  font-size: 13px;
+}
+
+.ngx-datatable.material .datatable-body .datatable-body-row .datatable-body-cell {
+  color: #676a6d;
+  font-size: 13px;
+}
+
+.ngx-datatable.material {
+  box-shadow: none !important;
+}
+
+.mat-tab-body-content {
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.ng-select .ng-select-container {
+  min-height: 38.5px !important;
+}
+
+.mat-radio-label-content {
+  font-weight: 100;
+}
+
+.mat-option:first-child .mat-pseudo-checkbox { 
+  display: none; 
+}
+
+.mat-list-text {
+  font-family: "Montserrat-Regular" !important;
+  color: #676a6d;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.mat-drawer-content {
+  overflow: hidden !important;
+}
+
+.mat-drawer {
+  overflow-y: hidden !important;
+}
+
+.mat-drawer-inner-container {
+  overflow: hidden !important;
+}
+
+.fa-passwd-reset > .fa-lock {
+  font-size: 0.85rem;
+}
+
+.highlight-Jobs { background:#3bb2fa;
+  border-radius: 100%;
+}
+
+.styledoughnut {
+  height: 105px !important;
+  width: 200px !important;
+}
+
+.right-styledoughnut {
+  height: 220px !important;
+  width: 420px !important;
+}
+
+.modal-backdrop.fade {
+  opacity: 0.5 !important;
+}
+
+.modal-open .modal {
+  opacity: 1 !important;
+}
+
+.action-icon {
+  font-size: 20px;
+  color:#3bb2fa;
+}
+
+.sort-icon {
+  font-size: 17px;
+  color:#858796;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+h3, h4, h5 {
+  font-family: "Montserrat-Regular";
+}
+
+td {
+  font-family: "Montserrat-Regular";
+  font-size: 13px;
+  color: #676a6d;
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  font-family: "Montserrat-Regular";
+  color: #676a6d;
+}
+
+.mat-cell {
+  font-family: "Montserrat-Regular";
+  font-weight: 400px;
+  line-height: 20px;
+  color: black;
+}
+
+.mat-card-title {
+  margin-top: 15px !important;
+  font-family: "Montserrat-Regular" !important;
+} 
+
+.mat-card-content {
+  font-family: "Montserrat-Regular" !important;
+}
+
+.mat-step-header .mat-step-icon-selected {
+  background-color: #f5394a !important;
+}
+
+.mat-step-header .mat-step-icon-state-edit {
+  background-color: #f5394a !important;
+  color: white;
+}
+
+.mat-calendar-body-selected {
+  background-color: #3bb2fa;
+  color: #fff;
+}
+
+.mat-icon-button-selected {
+  background-color: #3bb2fa;
+  color: #fff;
+}
+
+.clr-base {
+  color: #3bb2fa;
+}
+.clr-success {
+  color: #1DBE73;
+}
+.clr-orange {
+  color: #f6c23e;
+}
+.clr-gray {
+  color: #858796;
+}
+.clr-red {
+  color: #d43f3a;
+}
+.clr-white {
+  color: white !important;
+}
+
+.bg-base {
+  background-color:#3bb2fa;
+}
+.bg-success {
+  background-color:#1cc88a;
+}
+.bg-orange {
+  background-color:#f6c23e;
+}
+.bg-gray {
+  background-color:#858796;
+}
+.bg-red {
+  background-color:#d43f3a;
+}
+
+.icon-style{
+  position: relative;
+  top: 5px;
+  left: 0px;
+}
+
+.notifier__notification--info {
+  background-color: #1DBE73 !important;
+  color: #FFF;
+}
+
+.notifier__notification--success {
+  background-color: #1DBE73 !important;
+  color: #FFF;
+}
+
+a {
+  color: #858796;
+  // font-family: "Montserrat-Regular";
+}
+
+.headers {
+  font-family: "Montserrat-Regular" !important;
+  font-weight: bold !important;
+  background: #F5F5FA;
+}
+
+.mat-sort-header-arrow {
+  display: none !important;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+mat-label {
+  color: black;
+}
+
+.mat-option-text {
+  color: black;
+}
+
+.icon {
+  font-size: 15px;
+}
+
+#zmmtg-root{
+  display:none !important;
+}
+
+.mat-form-field {
+  font-size: small;
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 700px) {
+  .mobile-label {
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row { 
+    flex-direction: column;
+    align-items: start;
+    padding: 5px 0px;
+  }
+
+  .nga-read-more {
+    padding-left: 30px;
+  }
+
+  .heading {
+    padding-bottom: 15px;
+  }
+}
+
+.join-meeting-popup {
+  width: 400px;
+  height: auto;
+  .mat-dialog-container {
+    overflow: hidden !important;
+  }
+}
+
+.attachment-popup {
+  width: auto;
+  height: auto;
+  .mat-dialog-container {
+    overflow: hidden !important;
+  }
+}
+
+.for-stepper {
+  pointer-events: none; 
+  cursor: none;
+  background-color: #fafafa;
+}
+
+.AttachmentImage-preview {
+  align-items: center;
+  background: #f6f8f9;
+  border: 1px solid #e8ecee;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  max-width: 120px;
+  outline: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  top: 0;
+  background: rgba(0, 0, 0, 0.5); /* Black see-through */
+  width: 100%;
+  opacity: 0;
+}
+
+.AttachmentImage-preview:hover .overlay {
+  opacity: 1;
+}
+
+.Thumbnail-image {
+  max-width: 280px;
+  max-height: 70px;
+}
+
+.remove-attachment-icon {
+  cursor: pointer !important; 
+  position: relative; 
+  top: 8px;
+}

@@ -1,0 +1,221 @@
+<div class="full-body">
+
+  <div class="row pb-25" id="header">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <a routerLink="/"><img src="assets\site-images\logo.png" /></a>
+          </div>
+          <div class="col-md-9 col-lg-9 col-xl-9 text-align-right">
+            <div *ngIf="isMobileResolution" class="menu-btn">
+              <button class="btn-toggle navbar-toggler" type="button" (click)="changeNavbar()">
+                <i class="material-icons">menu</i>
+              </button>
+            </div>
+            <div *ngIf="!isMobileResolution">
+              <button mat-button class="btn"><a class="nav-link" routerLink="/teachers">For Teachers</a></button>
+              <button mat-button class="btn"><a class="nav-link" routerLink="/login">Sign In</a></button>
+              <button mat-button class="btn"><a class="nav-link sign-up" routerLink="/signUp">Sign Up</a></button>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="showMenu">
+          <div class="col-md-9 col-lg-9 col-xl-9 nav">
+            <a class="nav-link" routerLink="/teachers">For Teachers</a>
+            <a class="nav-link" routerLink="/login">Sign In</a>
+            <a class="nav-link sign-up" routerLink="/signUp">Sign Up</a>
+          </div>
+        </div>
+        <div class="row about">
+          <div class="col-md-5 col-lg-5 col-xl-5">
+            <h1>Teach Math Online</h1>
+            <p>Work when and where you want. <br />Earn up to $25/hr</p>
+            <div class="butt"><a routerLink="/signUp">Sign up to Teach</a></div>
+          </div>
+          <div class="col-md-7 col-lg-7 col-xl-7"><img src="assets\site-images\teacher-banner.png" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row offer-box about-offer">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="container-fluid">
+          <h2>Why teach with Teachers</h2>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\icon-4.jpg" />
+            <h3>Set Your Own Schedule</h3>
+            <p>Only teach when it works for you. There's no minimum hours required.</p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\icon-5.jpg" />
+            <h3>Teach Small Groups</h3>
+            <p>Teach one-on-one or small groups. We teach students ages 6-18.</p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\icon-6.jpg" />
+            <h3>Good Pay</h3>
+            <p>Earn up to $25/hour. And you can earn as much as you want. That's up to you.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row about-featured">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="container-fluid">
+          <h2>Featured Teachers</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="featured-box">
+              <img src="assets\site-images\pic-1.jpg" />
+              <h4>Michael C.</h4>
+              <p>Trigonometry</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="featured-box">
+              <img src="assets\site-images\pic-2.jpg" />
+              <h4>Erin G.</h4>
+              <p>Pre-Algebra</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="featured-box">
+              <img src="assets\site-images\pic-3.jpg" />
+              <h4>Mary M.</h4>
+              <p>Basic Math</p>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <div class="featured-box">
+              <img src="assets\site-images\pic-4.jpg" />
+              <h4>Kelly R.</h4>
+              <p>Statistics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row about-section-1">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="row">
+          <div class="col-lg-12 col-xl-12">
+            <div class="teacher-box">
+              <div class="user-pic-2"><img src="assets\site-images\user-pic-1.png" /></div>
+              “I absolutely love working through Teacher. Not only because it is so convenient and fits into
+              my
+              life but also because I have met the most wonderful students and parents.”<span>- DOE., JOHN</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row about-faq">
+    <div class="col-md-12">
+      <div class="col-sm-10 col-sm-offset-1 col-md-9 col-md-offset-1 col-lg-9 col-lg-offset-1 col-xl-9 col-xl-offset-1">
+        <div class="row">
+          <div class="col-md-12 col-lg-12 col-xl-12">
+            <div class="faq-section">
+              <h4>What does Teachers offer teachers?</h4>
+              <p>We offer a platform for teachers to help students online and via live chat. This includes:</p>
+              <ul>
+                <li>Access to our community of learners</li>
+                <li>Secure online payments</li>
+                <li>Integrated video chat platform and messaging</li>
+                <li>Responsive support via chat, email and phone</li>
+              </ul>
+            </div>
+            <div class="faq-section">
+              <h4>What subjects do we offer?</h4>
+              <p>We currently offer the following subjects for students in grades K-12</p>
+              <ul class="auto-w">
+                <li>Basic Math</li>
+                <li>Pre-Algebra</li>
+                <li>Algebra</li>
+                <li>Trigonometry</li>
+                <li>Precalculus</li>
+                <li>Calculus</li>
+              </ul>
+              <ul class="auto-w">
+                <li>Statistics</li>
+                <li>Finite Math</li>
+                <li>Linear Algebra</li>
+                <li>Chemistry</li>
+                <li>Graphing</li>
+              </ul>
+            </div>
+            <div class="faq-section">
+              <h4>Who can teach?</h4>
+              <p>Teacher does require formal teaching credentials. We do require criminal background check
+                before you start teaching. Teacher must be citizens of or resident in the US, Philippines, Canada,
+                Australia or New Zeland.</p>
+            </div>
+            <div class="faq-section">
+              <h4>What does it cost? And how do I get paid?</h4>
+              <p>It's free to signup on Teacher. We take a 30% service fee per transaction, so we only get
+                paid
+                when we're successful in bringing you customers. You receive payment via Paypal every two weeks.</p>
+            </div>
+            <div class="butt"><a routerLink="/signUp">Sign up to Teach</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 footer">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <div class="f-logo">
+            <img src="assets\site-images\f-logo.png" />
+          </div>
+          <div class="f-share">
+            <a href="#"><img src="assets\site-images\fb-icon.png" /></a>
+            <a href="#"><img src="assets\site-images\in-icon.png" /></a>
+            <a href="#"><img src="assets\site-images\tw-icon.png" /></a>
+            <a href="#"><img src="assets\site-images\youtb-icon.png" /></a>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#exampleModal">Sign Up to Teach</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <h3>Contact Info</h3>
+          <p>Sales:<a href="tel:1234567890">123-456-7890</a><br />Email: <a
+              href="mailto:sales@teacher.co">sales@teacher.co</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row copy-right">
+    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+      <div>Copyright © 2020 by Teacher</div>
+    </div>
+  </div>
+</div>

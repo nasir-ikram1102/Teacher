@@ -1,0 +1,287 @@
+<div class="full-body">
+
+  <div class="row" id="header">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 col-xl-3">
+            <a routerLink="/"><img src="assets\site-images\logo.png" /></a>
+          </div>
+          <div class="col-md-9 col-lg-9 col-xl-9 text-align-right">
+            <div *ngIf="isMobileResolution" class="menu-btn">
+              <button class="btn-toggle navbar-toggler" type="button" (click)="changeNavbar()">
+                <i class="material-icons">menu</i>
+              </button>
+            </div>
+            <div *ngIf="!isMobileResolution">
+              <button mat-button class="btn"><a class="nav-link" href="#price">Pricing</a></button>
+              <button mat-button class="btn"><a class="nav-link" routerLink="/teachers">For Teachers</a></button>
+              <button mat-button class="btn"><a class="nav-link" routerLink="/login">Sign In</a></button>
+              <button mat-button class="btn"><a class="nav-link sign-up" routerLink="/signUp">Sign Up</a></button>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="showMenu">
+          <div class="col-md-9 col-lg-9 col-xl-9 nav">
+            <a class="nav-link" href="#price">Pricing</a>
+            <a class="nav-link" routerLink="/teachers">For Teachers</a>
+            <a class="nav-link" routerLink="/login">Sign In</a>
+            <a class="nav-link sign-up" routerLink="/signUp">Sign Up</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-7 col-lg-6 col-xl-6">
+            <h1 id="form-section">Stuck on a Problem<span>?</span></h1>
+            <h3>Get Help From A Certified<br />Teacher In Minutes.</h3>
+            <div class="group-box">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <label>
+                  <textarea matInput formControlName="problemDescription" maxlength="2500"
+                    placeholder="Type your question or upload a problem."></textarea>
+                </label>
+                <label>
+                  <input name="" type="file" />
+                </label>
+                <div class="rqst-box">
+                  <div class="online-user"><span class="dot">&nbsp;</span>25 Teachers online</div>
+                  <button class="butt" style="float: right; cursor: pointer;" type="submit">
+                    Get Help Now
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-lg-1 col-xl-1"></div>
+          <div class="col-md-5 col-lg-5 col-xl-5">
+            <div class="call-user-outer">
+              <div class="call-user"><strong>Claudell</strong>, Math Teacher for 10 years <a href="#"><span
+                    class="call-now"><img src="assets\site-images\call-now.jpg" /></span></a></div>
+              <img src="assets\site-images\user-pic.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row location-box">
+    <div class="col-md-12">
+      <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="row">
+          <div class="col-md-8 col-lg-8 col-xl-8">
+            <div id="carouselExampleFade" class="carousel carousel-fade slide location-slider" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item" [ngClass]="{'active': carouselItem==1}" *ngIf="carouselItem == 1">
+                  Joan K. from Oxford,MS just received math help
+                </div>
+                <div class="carousel-item" [ngClass]="{'active': carouselItem==2}" *ngIf="carouselItem == 2">
+                  Evan R. from Montgomer, AL just received math help
+                </div>
+                <div class="carousel-item" [ngClass]="{'active': carouselItem==3}" *ngIf="carouselItem == 3">
+                  Kaela C. from Birmingham, AL just received math help
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4 col-xl-4">
+            <div class="right-now-text">Real Teachers. Real Answers. Right Now.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row offer-box pb-20">
+    <div class="col-md-12">
+      <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <h2>Teacher Offers</h2>
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\offer-1.jpg" />
+            <h3>Live Help</h3>
+            <p>Ask a question or get assistance using our 2-way video chat.</p>
+            <div class="butt"><a href="#form-section">Book a Session</a></div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\offer-2.jpg" />
+            <h3>Ask A Teacher</h3>
+            <p>Ask a question and get step-by-step answers from a math teacher.</p>
+            <div class="butt"><a href="#form-section">Ask a Question</a></div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\offer-3.jpg" />
+            <h3>Online Math Classes</h3>
+            <p>Take live online small group video chat classes for ages 6-18.</p>
+            <div class="butt"><a href="#form-section">Enroll</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row section-1">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6"><img src="assets\site-images\system.png" />
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <h2>Teachers Waiting To Answer Your Questions</h2>
+            <p>Teachers are always online and available, 24/7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row section-2">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2">
+        <div class="row">
+          <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8 align-center">
+            <h2>HELP FROM A REAL TEACHER</h2>
+            <h3>Our teachers are available 24/7, so you can always get the personalized help you need.</h3>
+          </div>
+          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1"></div>
+          <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"><img src="assets\site-images\section-pic.jpg" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row offer-box section-3">
+    <div class="col-md-12">
+      <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-8 col-xl-offset-2">
+        <h2>How Teacher Works?</h2>
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\icon-1.jpg" />
+            <h3>Ask Your Question</h3>
+            <p>Ask a question or upload a picture of your problem.</p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\icon-2.jpg" />
+            <h3>We Notify Teachers</h3>
+            <p>You'll be connected with a certified teacher ready to solve your problem.</p>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <img src="assets\site-images\icon-3.jpg" />
+            <h3>Get The Right Solution</h3>
+            <p>Get a step-by-step explanation and learn what you need to know.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row customer-section">
+    <div class="col-md-12">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2">
+        <h2>What Customer Say</h2>
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <div class="customer-box">
+              <div class="pic"><img src="assets\site-images\customer.jpg" /></div>
+              <div class="star"><img src="assets\site-images\star.jpg" /></div>
+              <p>“It's nice to have access to certified teachers who teach a variety of subjects from the comfort of
+                home.”</p>
+              <p class="name">- Anderson C. Atlanta, GA</p>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <div class="customer-box">
+              <div class="pic"><img src="assets\site-images\customer-2.jpg" /></div>
+              <div class="star"><img src="assets\site-images\star.jpg" /></div>
+              <p>“This is such a nice service to get help with homework. When we have a quick question, this is our go
+                to
+                source”</p>
+              <p class="name">- Tim C. Los Angeles, CA</p>
+            </div>
+          </div>
+          <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+            <div class="customer-box">
+              <div class="pic"><img src="assets\site-images\customer-3.jpg" /></div>
+              <div class="star"><img src="assets\site-images\star.jpg" /></div>
+              <p>“My son absolutely loved his experience Thank you for making teachers available to help.”</p>
+              <p class="name">- Tammy D. Chicago, IL</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row home-price-section" id="price">
+    <div class="col-md-12">
+      <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 col-xl-8 col-xl-offset-2">
+        <h2>Pricing</h2>
+        <div class="pink-bg">
+          <div class="row">
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <h4>Ask a Teacher</h4>
+              <p>Single Question: $7</p>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <h4>Live Online Help</h4>
+              <p>Single Session: $20</p>
+              <p>Five Session Package: $90</p>
+            </div>
+            <div class="col-md-4 col-lg-4 col-xl-4">
+              <h4>Online Math Classes</h4>
+              <p>Contact Us</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 col-xl-12">
+              <div class="butt"><a href="#form-section">Book a Session</a></div>
+            </div>
+          </div>
+        </div>
+        <p class="small-text">*Sessions are 30 minutes in length.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 footer">
+      <div
+        class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <div class="f-logo">
+            <img src="assets\site-images\f-logo.png" />
+          </div>
+          <div class="f-share">
+            <a href="#"><img src="assets\site-images\fb-icon.png" /></a>
+            <a href="#"><img src="assets\site-images\in-icon.png" /></a>
+            <a href="#"><img src="assets\site-images\tw-icon.png" /></a>
+            <a href="#"><img src="assets\site-images\youtb-icon.png" /></a>
+          </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">How It Works</a></li>
+            <li><a href="#" data-toggle="modal" data-target="#exampleModal">Sign Up to Teach</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+          <h3>Contact Info</h3>
+          <p>Sales:<a href="tel:1234567890">123-456-7890</a><br />Email: <a
+              href="mailto:sales@teacher.co">sales@teacher.co</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row copy-right">
+    <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 col-xl-10 col-xl-offset-1">
+      <div>Copyright © 2020 by Teacher</div>
+    </div>
+  </div>
+</div>

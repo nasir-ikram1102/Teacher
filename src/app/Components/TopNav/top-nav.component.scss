@@ -1,0 +1,39 @@
+.logo {
+  width: 205px;
+}
+
+.adjust-spacer {
+  flex: 1 1 auto;
+}
+
+mat-toolbar {
+  border-bottom: 1px solid #e9e9e9;
+  background:#fff !important;
+  padding: 10px;
+}
+
+.btn {
+  color: #575555; 
+  font-weight: bold; 
+  margin-left: 10px;
+  outline: none;
+}
+
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-nav-list a {
+  margin: 0px 16px;
+  font-size: 14px;
+  font-family: "Montserrat-Regular";
+} 
+
+mat-sidenav {
+  width: 250px;
+}
+
+.mat-nav-list a:hover {
+  background:  #e9e7e7 !important;
+  border-left: 5px solid #f5394a; 
+}

@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="col-md-12">
+    <hr style="display: table;">
+    <div class="col-md-7 col-md-offset-1">
+      <mat-horizontal-stepper labelPosition="bottom" id="header" class="for-stepper">
+        <mat-step>
+          <ng-template matStepLabel>Find Question</ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Provide Answer</ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Get Paid</ng-template>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <div class="row">
+        <div class="col-md-12 text-align-right pb-10">
+          <button mat-button class="red-button clr-white" type="button" disabled="true">
+            <i class="material-icons icon">lock</i> Locked
+          </button>&nbsp;
+          <button mat-button class="gray-button" type="button" (click)="release()">Release</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <mat-card>
+            <form [formGroup]="form">
+              <div class="row">
+                <div class="col-md-12">
+                  <h5>Student's Question: <span class="pl-20">${{problemData.packageAmount}}</span></h5>
+                  <mat-form-field appearance="outline"
+                    class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                    <textarea matInput matTextareaAutosize matAutosizeMinRows="7" matAutosizeMaxRows="10"
+                      readonly>{{problemData.problemText}}</textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row" *ngIf="problemData.anyProblemAttachemt">
+                <div class="col-md-12">
+                  <div class="col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-1">
+                    <button mat-button type="button" class="grey-button" (click)="getAttachment()"
+                      matTooltip="Download Attachment">
+                      {{problemFileName}}
+                    </button>
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-3 AttachmentImage-preview"
+                    (click)="openAttachmentPopup(problemAttachment,problemData.problemOriginalFileName,problemData.problemFileName,problemData.problemFileContentType,problemData.problemCreatedDate)">
+                    <img [src]="problemAttachment" class="Thumbnail-image">
+                    <div class="overlay"></div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5>Teacher's Answer:</h5>
+                  <mat-form-field appearance="outline"
+                    class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                    <textarea matInput matTextareaAutosize matAutosizeMinRows="10" matAutosizeMaxRows="12"
+                      formControlName="answer"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-3 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-1">
+                    <button mat-button type="button" class="grey-button" (click)="uploadClick()"
+                      matTooltip="Add Attachment">
+                      {{OriginalFileNameForDisplay}}
+                      <span style="color: grey;" *ngIf='!OriginalFileNameForDisplay'>Add Attachment</span>
+                    </button>
+                    <i *ngIf='OriginalFileName' class="material-icons remove-attachment-icon"
+                      matTooltip="Remove Attachment" matTooltipPosition="below" (click)="removeAttachment()">
+                      cancel
+                    </i>
+                    <input type="file" #file id="UploadButton" (change)="uploadAttachment($event.target.files)"
+                      style="display: none" />
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-3 AttachmentImage-preview" *ngIf='OriginalFileNameForDisplay'
+                    (click)="openAttachmentPopup(solutionAttachment,OriginalFileName,FileName,FileContentType,CreatedDate)">
+                    <img [src]="solutionAttachment" class="Thumbnail-image">
+                    <div class="overlay"></div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-2 col-sm-2 col-xs-2">
+                    <a routerLink="/teacherDashboard">
+                      <button mat-button class="grey-button" type="button">Back</button>
+                    </a>
+                  </div>
+                  <div class="col-md-10 col-sm-10 col-xs-10 text-align-right">
+                    <button mat-button class="grey-button" type="submit" (click)="onSubmit(form,false)">
+                      Review & Save
+                    </button>&nbsp;
+                    <button mat-button class="red-button" type="submit" (click)="onSubmit(form,true)">
+                      Send
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    <about-tod></about-tod>
+  </div>
+</div>

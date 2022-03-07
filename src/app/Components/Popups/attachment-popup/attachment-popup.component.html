@@ -1,0 +1,31 @@
+<div class="ModalLayer">
+  <div class="carousel">
+    <div class="attachmentBar">
+      <div class="attachmentBar-left">
+        <div class="attachmentDetails">
+          <div class="attachmentName">{{data.originalFileName}}</div>
+          <div class="attachmentDate">
+            {{data.createdDate | date: 'MMMM d, y'}} at {{data.createdDate | date: 'h:mm a'}}
+          </div>
+        </div>
+        <div>
+          <button mat-button class="btn" (click)="getAttachment()">
+            <i class="material-icons">save_alt</i> Download
+          </button>
+        </div>
+      </div>
+      <div class="attachmentBar-right close-btn">
+        <i class="material-icons cursor-pointer" (click)="onClose()">clear</i>
+      </div>
+    </div>
+    <div class="carouselContainer">
+      <div class="carousel attachmentsCarousel">
+        <div class="carouselSlide carousel-child">
+          <div class="attachmentWithRotation" style="padding: 0px;">
+            <img class="attachmentWithRotation-image" [src]="data.image">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

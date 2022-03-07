@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-md-6 col-sm-6 col-xs-6">Join Meeting</div>
+  <div class="col-md-6 col-sm-6 col-xs-6 text-align-right">
+    <i class="material-icons cursor-pointer" (click)="onClose()">clear</i>
+  </div>
+</div>
+<hr>
+<form [formGroup]="form">
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+        <mat-label>Meeting Number</mat-label>
+        <input matInput autocomplete="off" placeholder="Meeting Number" formControlName="meetingNumber">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+        <mat-label>Meeting Password</mat-label>
+        <input matInput autocomplete="off" placeholder="Meeting Password" formControlName="meetingPassword">
+      </mat-form-field>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-align-right">
+      <button mat-button class="red-button" type="submit" (click)="JoinMeeting(0)">
+        Join
+      </button>
+    </div>
+  </div>
+</form>

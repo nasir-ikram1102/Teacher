@@ -1,0 +1,41 @@
+﻿img {
+  width: 60%;
+}
+.form {
+  font-family: "Montserrat-Regular";
+  position: relative;
+  z-index: 1;
+  background: #F38301;
+  max-width: 430px;
+  margin: 5% auto 0px;
+  padding: 17px;
+  text-align: left;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.form button {
+  font-family: "Montserrat-Regular";
+  text-transform: uppercase;
+  outline: 0;
+  background: #F85415;
+  width: 100%;
+  border: 0;
+  padding: 8px !important;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #F85415;
+}
+.form .message {
+  margin: 0px;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+.form .message a {
+  color: #F85415;
+}

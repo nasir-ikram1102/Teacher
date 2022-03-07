@@ -1,0 +1,52 @@
+
+/* Popups on Top Header */
+/* .search-popup .mat-dialog-container {
+    overflow: hidden;
+    padding: 0;
+    border-radius: 5px;
+  }
+
+.setting-popup .mat-dialog-container {
+  overflow: hidden;
+  padding: 0;
+  border-radius: 5px;
+} */
+
+/* Setting Page */
+
+.HeaderAlignment {
+  display: flex;
+  
+}
+
+/* Absence Detail popup */
+
+/* .AbsenceDetail-popup .mat-dialog-container {
+  overflow: hidden;
+} */
+
+  /* .mat-horizontal-stepper-header{
+    pointer-events: none !important;
+} */
+
+/* Jobs */
+/* .mat-column-Employee {
+  flex: 0 0 15% !important;
+  min-width: 255px !important;
+}
+
+.mat-column-Location {
+  flex: 0 0 15% !important;
+  min-width: 200px !important;
+}
+
+.mat-column-AbsenceDate, .mat-column-Posted, .mat-column-Attachment, .mat-column-Notes {
+  padding-left: 24px;
+  flex: 0 0 13% !important;
+    min-width: 163px !important; 
+
+}
+.mat-cell {
+  font-size: 12px !important;
+} */
+

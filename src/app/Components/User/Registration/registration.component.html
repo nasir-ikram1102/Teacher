@@ -1,0 +1,108 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="form">
+      <mat-card style="padding: 2%;">
+        <div class="text-align-center">
+          <img src="assets\Images\Teachers.png">
+        </div>
+        <hr>
+        <form [formGroup]="regForm" (ngSubmit)="onSubmit(regForm)">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+                  <mat-label>First Name</mat-label>
+                  <input matInput placeholder="First Name" formControlName="firstName" autocomplete="off">
+                  <mat-error *ngIf="regForm.controls['firstName'].hasError('required')">
+                    First Name is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput placeholder="Last Name" formControlName="lastName" autocomplete="off">
+                  <mat-error *ngIf="regForm.controls['lastName'].hasError('required')">
+                    Last Name is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <mat-form-field hintLabel="Min 7 and Max 200 characters." appearance="outline"
+            class="col-md-12 col-sm-12 col-xs-12">
+            <mat-label>Address</mat-label>
+            <input matInput #address minlength="7" maxlength="50" placeholder="Address" formControlName="address"
+              autocomplete="off">
+            <mat-error *ngIf="regForm.controls['address'].hasError('required')">
+              Address is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email" autocomplete="off">
+            <mat-error *ngIf="regForm.controls['email'].hasError('email')">
+              Not a valid email.
+            </mat-error>
+            <mat-error *ngIf="regForm.controls['email'].hasError('required')">
+              Email is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field hintLabel="Min 7 and Max 15 characters." appearance="outline"
+            class="col-md-12 col-sm-12 col-xs-12">
+            <mat-label>Mobile</mat-label>
+            <input matInput #mobile minlength="7" maxlength="15" placeholder="Mobile" formControlName="phoneNumber"
+              autocomplete="off">
+            <mat-error *ngIf="regForm.controls['phoneNumber'].hasError('pattern')">
+              Only numbers allowed.
+            </mat-error>
+            <mat-error *ngIf="regForm.controls['phoneNumber'].hasError('required')">
+              Mobile Number is required.
+            </mat-error>
+          </mat-form-field>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+                  <mat-label>Preferred Subjects</mat-label>
+                  <mat-select formControlName="subject" multiple>
+                    <mat-option-select-all></mat-option-select-all>
+                    <mat-option *ngFor="let subject of Subjects" [value]="subject.id">
+                      {{subject.title}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="regForm.controls['subject'].hasError('required')">
+                    Subject is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+                  <mat-label>Grade Level Taught</mat-label>
+                  <mat-select formControlName="gradeLevel" multiple>
+                    <mat-option-select-all></mat-option-select-all>
+                    <mat-option *ngFor="let grade of GradeLevels" [value]="grade.id">
+                      {{grade.title}}
+                    </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="regForm.controls['gradeLevel'].hasError('required')">
+                    Grade Level is required.
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <p class="message">By signing up, I agree to Teacher's
+              <a>Privacy Policy.</a>
+            </p>
+            <button mat-button type="submit">Sign Up</button>
+            <p class="message">
+              <a routerLink="/login">Sign in instead</a>
+            </p>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

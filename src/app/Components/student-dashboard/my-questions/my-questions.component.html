@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-md-12">
+    <hr style="display: table;">
+    <div class="col-md-7 col-md-offset-1">
+      <div class="row example-container">
+        <div class="col-md-12">
+          <mat-card-title>My Questions</mat-card-title>
+          <mat-card>
+            <mat-table #table [dataSource]="dataSource" matSort *ngIf='dataSource.data.length > 0'
+              [class.isMobile]="isMobile">
+              <ng-container matColumnDef="date">
+                <mat-header-cell *matHeaderCellDef>Date</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <span class="mobile-label">Date:</span>
+                  {{row.createdDate | date: 'EEEE, MMMM d, y'}}
+                </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="problem">
+                <mat-header-cell *matHeaderCellDef>Questions</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <span class="mobile-label">Questions:</span>
+                  <nga-read-more [text]="row.problemText" [textLength]="350" class="nga-read-more"></nga-read-more>
+                </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="acceptedBy">
+                <mat-header-cell *matHeaderCellDef>Answered By</mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <span class="mobile-label">Answered By:</span>
+                  {{row.problemStatusId == 1 ? 'N/A' : row.teacherFirstName + ' ' + row.teacherLastName}}
+                </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row">
+                  <button mat-button class="red-button" type="button" (click)="RedirectToProblemDetail(row)">
+                    View Detail
+                  </button>
+                </mat-cell>
+              </ng-container>
+              <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+            </mat-paginator>
+          </mat-card>
+          <div *ngIf='dataSource.data.length === 0'>
+            <div class="text-muted p-15">No data to display.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <about-tod></about-tod>
+  </div>
+</div>

@@ -1,0 +1,135 @@
+.ModalLayer {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 900;
+}
+.carousel {
+    background-color: #273240;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    min-height: 1px;
+    min-width: 1px;
+    width: 100%;
+}
+.carouselContainer {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    min-height: 1px;
+}
+.attachmentsCarousel {
+    flex: 1 1 auto;
+    min-width: 1px;
+}
+.carouselSlide {
+    align-items: center;
+    border: 20px solid transparent;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.carousel-child {
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.attachmentWithRotation {
+    align-items: center;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+.attachmentWithRotation-image {
+    background-color: #fff;
+    flex: 0 1 auto;
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 1px;
+    width: auto;
+}
+.attachmentBar {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    align-items: center;
+    background-color: #273240;
+    border-bottom: 1px solid rgba(111,119,130,.4);
+    color: #fff;
+    display: flex;
+    flex: 0 0 auto;
+}
+.attachmentDetails {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
+    min-width: 1px;
+}
+.attachmentBar-left {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    justify-content: space-between;
+    margin-right: 20px;
+    min-width: 1px;
+}
+.attachmentBar-right {
+    align-items: center;
+    border-left: 1px solid rgba(111,119,130,.4);
+    display: flex;
+    flex: 0 0 auto;
+    height: 60px;
+    justify-content: center;
+    width: 60px;
+}
+.attachmentDate {
+    color: #6f7782;
+}
+.attachmentName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.btn {
+    color: rgba(255,255,255,.5); 
+    font-size: 12px;
+    outline: none;
+    i {
+        font-size: 20px;
+    }
+}
+.btn:hover {
+    color: white;
+    i {
+        font-size: 23px;
+    }
+}
+.close-btn {
+    i {
+        color :rgba(255,255,255,.5);
+        font-size: 30px;
+    }
+    i:hover {
+        color :white;
+        font-size: 33px;
+    }
+}

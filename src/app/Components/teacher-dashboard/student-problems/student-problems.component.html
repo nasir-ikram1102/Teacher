@@ -1,0 +1,45 @@
+<mat-card>
+  <div class="small-title heading">Active Student Questions</div>
+  <mat-table #table [dataSource]="dataSource" matSort *ngIf='dataSource.data.length > 0' [class.isMobile]="isMobile">
+    <ng-container matColumnDef="information">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <img src="assets\Images\noimage.png" width="40" height="40">
+        {{row.studentFirstName}} {{row.studentLastName}} <br>
+        {{row.createdDate | date: 'EEEE, MMMM d, y'}}
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="problem">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <nga-read-more [text]="row.problemText" [textLength]="350"></nga-read-more>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <a style="cursor: pointer;" *ngIf="row.problemStatusId == 1">
+          <p class="clr-gray">${{row.packageAmount}}</p>
+          <button mat-button class="red-button" type="button" (click)="accept(row)">
+            <i class="material-icons icon">check</i> Accept
+          </button>
+        </a>
+        <a style="cursor: pointer;" *ngIf="row.problemStatusId == 2">
+          <p class="clr-gray">${{row.packageAmount}}</p>
+          <button mat-button class="red-button" type="button" (click)="locked(row)">
+            <i class="material-icons icon">lock</i> Locked
+          </button>
+        </a>
+      </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true">
+  </mat-paginator>
+</mat-card>
+<div *ngIf='dataSource.data.length === 0'>
+  <div class="text-muted p-15">No data to display.</div>
+</div>

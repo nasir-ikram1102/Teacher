@@ -1,0 +1,32 @@
+﻿<div class="row">
+	<div class="col-md-12">
+		<div class="form">
+			<mat-card style="padding: 5%;">
+				<div class="text-align-center">
+					<img src="assets\Images\Teachers.png">
+				</div>
+				<hr>
+				<form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+					<mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+						<mat-label>Email</mat-label>
+						<input matInput formControlName="email" autocomplete="off">
+						<mat-error *ngIf="loginForm.controls['email'].hasError('required')">
+							Please enter your email.
+						</mat-error>
+					</mat-form-field>
+					<mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12 p-0">
+						<mat-label>Password</mat-label>
+						<input matInput formControlName="password" type="password" autocomplete="off">
+						<mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+							Please enter your password.
+						</mat-error>
+					</mat-form-field>
+					<button mat-button type="submit">Login</button>
+					<p class="message">Don’t have an account?
+						<a routerLink="/signUp">Sign Up</a>
+					</p>
+				</form>
+			</mat-card>
+		</div>
+	</div>
+</div>

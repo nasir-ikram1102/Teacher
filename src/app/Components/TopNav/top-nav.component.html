@@ -1,0 +1,66 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <a (click)="GotoDashboard()" class="cursor-pointers">
+      <img src="assets\Images\Teachers.png" alt="Teachers" class="logo">
+    </a>
+    <span class="adjust-spacer"></span>
+    <br /> &nbsp;
+    <span *ngIf="mobileQuery.matches == false">
+      <button mat-button [matMenuTriggerFor]="menu" (click)="$event.stopPropagation()" class="btn">Class
+        <i class="material-icons">arrow_drop_down</i>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngIf="UserRoleId == 1" (click)="LoginZoom()">
+          Start Meeting
+          <mat-icon style="padding-left: 25px;">arrow_right</mat-icon>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item *ngIf="UserRoleId == 2" (click)="openJoinMeetingPopup()">
+          Join Meeting
+          <mat-icon style="padding-left: 30px;">arrow_right</mat-icon>
+        </button>
+      </mat-menu>
+      <button mat-button class="btn" (click)="FindQuestions()" *ngIf="UserRoleId == 1">Find Questions</button>
+      <button mat-button class="btn" (click)="MyQuestions()" *ngIf="UserRoleId == 2">My Questions</button>
+      <button mat-button class="btn" (click)="Logout()">Logout</button>
+    </span>
+    <button mat-icon-button *ngIf="isMobileResolution">
+      <mat-icon style="color: black;" (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav position="end" [mode]="over" [ngClass]="{'hide': !isMobileResolution}">
+    <mat-nav-list>
+
+      <a mat-list-item (click)="toggleMenu()">Class
+        <mat-icon style="padding-left: 100px;" *ngIf="!showMenu">arrow_right</mat-icon>
+        <mat-icon style="padding-left: 100px;" *ngIf="showMenu">arrow_drop_down</mat-icon>
+      </a>
+
+      <mat-nav-list class="pl-15" *ngIf="showMenu">
+        <a mat-list-item *ngIf="UserRoleId == 1" (click)="LoginZoom();sidenav.toggle()">
+          Start Meeting
+          <mat-icon style="padding-left: 25px;">arrow_right</mat-icon>
+        </a>
+        <a mat-list-item *ngIf="UserRoleId == 2" (click)="openJoinMeetingPopup();sidenav.toggle()">
+          Join Meeting
+          <mat-icon style="padding-left: 30px;">arrow_right</mat-icon>
+        </a>
+      </mat-nav-list>
+
+      <a mat-list-item *ngIf="UserRoleId == 1" (click)="FindQuestions();sidenav.toggle()">Find Questions</a>
+
+      <a mat-list-item *ngIf="UserRoleId == 2" (click)="MyQuestions();sidenav.toggle()">My Questions</a>
+
+      <a mat-list-item (click)="Logout()">Logout</a>
+
+      <a mat-list-item (click)="sidenav.toggle()">Close</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

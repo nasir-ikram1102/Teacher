@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-md-12">
+    <hr style="display: table;">
+    <div class="col-md-7 col-md-offset-1">
+      <mat-card-title>Question Detail</mat-card-title>
+      <mat-card>
+        <div class="row">
+          <div class="col-md-12">
+            <h5>Student's Question: <span class="pl-20">${{problemData.packageAmount}}</span></h5>
+            <mat-form-field appearance="outline"
+              class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+              <textarea matInput matTextareaAutosize matAutosizeMinRows="7" matAutosizeMaxRows="10"
+                readonly>{{problemData.problemText}}</textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" *ngIf="problemData.anyProblemAttachemt">
+          <div class="col-md-12">
+            <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-4 col-xs-offset-1">
+              <button mat-button type="button" class="grey-button"
+                (click)="getAttachment(problemData.problemFileName,problemData.problemFileContentType)"
+                matTooltip="Download Attachment">
+                {{problemFileName}}
+              </button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3 AttachmentImage-preview"
+              (click)="openAttachmentPopup(problemAttachment,problemData.problemOriginalFileName,problemData.problemFileName,problemData.problemFileContentType,problemData.problemCreatedDate)">
+              <img [src]="problemAttachment" class="Thumbnail-image">
+              <div class="overlay"></div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            <h5>Teacher's Answer:</h5>
+            <mat-form-field appearance="outline"
+              class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+              <textarea matInput matTextareaAutosize matAutosizeMinRows="10" matAutosizeMaxRows="12"
+                readonly>{{problemData.solutionText}}</textarea>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" *ngIf="problemData.anySolutionAttachemt">
+          <div class="col-md-12">
+            <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-4 col-xs-offset-1">
+              <button mat-button type="button" class="grey-button"
+                (click)="getAttachment(problemData.solutionFileName,problemData.solutionFileContentType)"
+                matTooltip="Download Attachment">
+                {{solutionFileName}}
+              </button>
+            </div>
+            <div class="col-md-3 col-sm-3 col-xs-3 AttachmentImage-preview"
+              (click)="openAttachmentPopup(solutionAttachment,problemData.solutionOriginalFileName,problemData.solutionFileName,problemData.solutionFileContentType,problemData.solutionCreatedDate)">
+              <img [src]="solutionAttachment" class="Thumbnail-image">
+              <div class="overlay"></div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-11 text-align-left">
+            <a routerLink="/myQuestions" *ngIf="UserRoleId == 2">
+              <button mat-button class="grey-button" type="button">Back</button>
+            </a>
+            <a routerLink="/teacherDashboard" *ngIf="UserRoleId == 1">
+              <button mat-button class="grey-button" type="button">Back</button>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </mat-card>
+    </div>
+    <about-tod></about-tod>
+  </div>
+</div>

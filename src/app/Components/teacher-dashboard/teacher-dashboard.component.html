@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+    <hr style="display: table;">
+    <div class="col-md-7 col-md-offset-1">
+      <mat-horizontal-stepper labelPosition="bottom" id="header" class="for-stepper">
+        <mat-step>
+          <ng-template matStepLabel>Find Question</ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Provide Answer</ng-template>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Get Paid</ng-template>
+        </mat-step>
+      </mat-horizontal-stepper>
+      <div class="row mb-15">
+        <div class="col-md-12">
+          <a class="tabs" [ngClass]="{'active': Tab == 1}" (click)="onTabChange(1)">Active
+            <span>{{ ActiveProblems }}</span>
+          </a>
+          <a class="tabs ml-40" [ngClass]="{'active': Tab == 2}" (click)="onTabChange(2)">Answered
+            <span>{{ AcceptedProblems }}</span>
+          </a>
+        </div>
+      </div>
+      <div class="row" *ngIf="Tab == 1">
+        <div class="col-md-12">
+          <student-problems></student-problems>
+        </div>
+      </div>
+      <div class="row" *ngIf="Tab == 2">
+        <div class="col-md-12">
+          <student-problems-with-solutions></student-problems-with-solutions>
+        </div>
+      </div>
+    </div>
+    <about-tod></about-tod>
+  </div>
+</div>

@@ -1,0 +1,269 @@
+<div class="row">
+  <div class="col-md-12">
+    <hr style="display: table;">
+    <div class="col-md-7 col-md-offset-1">
+      <mat-horizontal-stepper [linear]="isLinear" labelPosition="bottom" #stepper="matHorizontalStepper"
+        style="background-color: #fafafa;">
+        <mat-step [stepControl]="firstForm">
+          <ng-template matStepLabel>Ask Your Question</ng-template>
+          <form [formGroup]="firstForm">
+            <mat-card class="row">
+              <div class="row">
+                <div class="col-md-12">
+                  <h5>Your Question:</h5>
+                  <mat-form-field appearance="outline"
+                    class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                    <textarea #text1 matInput matTextareaAutosize matAutosizeMinRows="7" matAutosizeMaxRows="10"
+                      maxlength="2500" formControlName="question"
+                      placeholder="Describe your problem or upload a picture"></textarea>
+                    <mat-hint align="end">{{text1.value?.length || 0}}/2500 Chars Max</mat-hint>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="col-md-4 col-md-offset-1 col-sm-4 col-sm-offset-1 col-xs-5 col-xs-offset-1">
+                    <button mat-button type="button" class="grey-button" (click)="uploadClick()"
+                      matTooltip="Add Attachment">
+                      {{OriginalFileNameForDisplay}}
+                      <span style="color: grey;" *ngIf='!OriginalFileNameForDisplay'>Add Attachment</span>
+                    </button>
+                    <i *ngIf='OriginalFileName' class="material-icons remove-attachment-icon"
+                      matTooltip="Remove Attachment" matTooltipPosition="below" (click)="removeAttachment()">
+                      cancel
+                    </i>
+                    <input type="file" #file id="UploadButton" (change)="uploadAttachment($event.target.files)"
+                      style="display: none" />
+                  </div>
+                  <div class="col-md-3 col-sm-3 col-xs-3 AttachmentImage-preview" *ngIf='OriginalFileNameForDisplay'
+                    (click)="openAttachmentPopup()">
+                    <img [src]="Image" class="Thumbnail-image">
+                    <div class="overlay"></div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5>Description:</h5>
+                  <mat-form-field appearance="outline"
+                    class="col-md-6 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                    <mat-label>Select......</mat-label>
+                    <mat-select matNativeControl formControlName="description">
+                      <mat-option *ngFor="let description of ProblemDescription" [value]="description.id">
+                        {{description.title}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5>Pick a Subject:</h5>
+                  <mat-form-field appearance="outline"
+                    class="col-md-6 col-md-offset-1 col-sm-8 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                    <mat-label>Select......</mat-label>
+                    <mat-select matNativeControl formControlName="subject">
+                      <mat-option *ngFor="let subject of Subjects" [value]="subject.id">{{subject.title}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <hr>
+              <div class="row">
+                <div class="col-md-12 text-align-center">
+                  <button mat-button class="red-button" type="submit" (click)="goToNextForm(stepper)">Next
+                  </button>
+                </div>
+              </div>
+            </mat-card>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondForm">
+          <ng-template matStepLabel>Make Payment</ng-template>
+          <form [formGroup]="secondForm">
+            <mat-card class="row">
+              <div *ngIf="!paymentProcessing">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 text-align-center">
+                    <h4 class="bold">You're Almost Done!</h4>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <h5>Make Selection:</h5>
+                  </div>
+                  <div class="col-md-11 col-md-offset-1 col-sm-11 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                    <mat-radio-group formControlName="paymentSelectionId">
+                      <div *ngFor="let paymentPackage of PaymentPackages">
+                        <mat-radio-button color="primary" [value]="paymentPackage.id" (change)="onChange($event.value)">
+                          <h5>{{paymentPackage.title}}</h5>
+                        </mat-radio-button>
+                        <h5 class="pl-25">({{paymentPackage.packageDescription}})</h5>
+                        <br>
+                      </div>
+                    </mat-radio-group>
+                  </div>
+                </div>
+                <hr style="display: table;">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 text-align-center">
+                    <button mat-button class="red-button" type="button" (click)="makePayment()">Buy Now
+                    </button>
+                  </div>
+                </div>
+                <hr style="display: table;">
+                <div class="row" style="background-color: #f7f7f7;">
+                  <div class="col-md-12 p-10">
+                    <div class="col-md-1 col-sm-1 col-xs-1">
+                      <i class="material-icons icon-style">people</i>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <h5>Handpicked <br> Teachers</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1">
+                      <i class="material-icons icon-style">flash_on</i>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <h5>Quick <br> Responses</h5>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-xs-1">
+                      <i class="material-icons icon-style">sentiment_satisfied_alt</i>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-xs-3">
+                      <h5>Happiness <br> Guarantee</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="paymentProcessing">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12 col-xs-12 text-align-center">
+                    <h4 class="bold">Teacher | Payments</h4>
+                  </div>
+                </div>
+                <hr>
+                <div class="row">
+                  <div class="col-md-12 font">
+                    <div class="col-md-7 col-sm-7 col-sm-7 p-0">
+                      <div>Name</div>
+                      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+                        <input matInput autocomplete="off" formControlName="cardName">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 font">
+                    <div class="col-md-6 col-sm-7 col-sm-7 p-0">
+                      Credit Card <br>
+                      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+                        <input matInput autocomplete="off" formControlName="cardNumber">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-10 p-0">
+                      Exp Month <br>
+                      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+                        <input matInput autocomplete="off" formControlName="cardExpiryMonth">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-3 col-sm-4 col-xs-10 p-0">
+                      Exp Year <br>
+                      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+                        <input matInput autocomplete="off" formControlName="cardExpiryYear">
+                      </mat-form-field>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-6 p-0">
+                      CVV <br>
+                      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+                        <input matInput autocomplete="off" formControlName="cardCvc">
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 pb-10">&nbsp;
+                    <img src="assets\Images\card.PNG" height="35">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 font">
+                    <div class="col-md-4 col-sm-5 col-xs-6 p-0">
+                      <div>Order Amount</div>
+                      <mat-form-field appearance="outline" class="col-md-12 col-sm-12 col-xs-12">
+                        <span matPrefix style="position: relative; top: -3px;">$</span>
+                        <input matInput autocomplete="off" [value]="PackageAmount" readonly>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <button mat-button class="grey-button" type="button" (click)="cancelPaymentProcessing()">Cancel
+                    </button>&nbsp;
+                    <button mat-button class="red-button" type="button"
+                      (click)="onSubmit(firstForm,secondForm,stepper)">Process Payment
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </mat-card>
+          </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Get Answer</ng-template>
+          <mat-card class="row">
+            <div class="row">
+              <div class="col-md-12">
+                <h5>Student's Question:</h5>
+                <mat-form-field appearance="outline"
+                  class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                  <textarea matInput matTextareaAutosize matAutosizeMinRows="7" matAutosizeMaxRows="10" maxlength="2500"
+                    readonly>{{firstForm.value.question}}</textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row" *ngIf="OriginalFileNameForDisplay">
+              <div class="col-md-12">
+                <div class="col-md-3 col-md-offset-1 col-sm-3 col-sm-offset-1 col-xs-4 col-xs-offset-1">
+                  <button mat-button type="button" class="grey-button" (click)="getAttachment()"
+                    matTooltip="Download Attachment">
+                    {{OriginalFileNameForDisplay}}
+                  </button>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-3 col-xs-3 AttachmentImage-preview" (click)="openAttachmentPopup()">
+                <img [src]="Image" class="Thumbnail-image">
+                <div class="overlay"></div>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-12">
+                <h5>Teacher's Answer:</h5>
+                <mat-form-field appearance="outline"
+                  class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-11 col-xs-offset-1">
+                  <textarea matInput matTextareaAutosize matAutosizeMinRows="10" matAutosizeMaxRows="12"
+                    readonly></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11 col-sm-11 col-xs-11 text-align-right">
+                <button mat-button class="grey-button" type="button" (click)="resetForm(stepper)">
+                  Ask Follow-Up Question
+                </button>&nbsp;
+                <button mat-button class="red-button" type="button" (click)="resetForm(stepper)">
+                  Close & Rate Teacher
+                </button>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+          </mat-card>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+    <about-tod></about-tod>
+  </div>
+</div>
